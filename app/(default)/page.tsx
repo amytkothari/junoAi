@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
+  title: "Juno - Mental Health & Wellness App",
+  description: "Your personal mental health companion. Track mood, practice mindfulness, and get professional support when you need it most.",
 };
 
 import PageIllustration from "@/components/page-illustration";
