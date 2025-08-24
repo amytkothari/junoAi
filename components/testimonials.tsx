@@ -53,6 +53,7 @@ const testimonials = [
   {
     img: TestimonialImg04,
     clientImg: ClientImg04,
+    name: "Dr. Rachel T.",
     company: "Therapist",
     content:
       "As a mental health professional, I recommend Juno to my clients. It's a safe space for self-reflection that complements therapy perfectly. The insights it provides help people understand themselves better.",
