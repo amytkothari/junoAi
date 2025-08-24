@@ -55,7 +55,7 @@ export default function Waitlist() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-md">
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           type="email"
           value={email}
@@ -68,7 +68,7 @@ export default function Waitlist() {
         <button
           type="submit"
           disabled={isLoading}
-          className="btn-sm bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[length:100%_100%] flex items-center gap-2"
+          className="btn-sm bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[length:100%_100%] flex items-center gap-2 justify-center whitespace-nowrap sm:w-auto w-full"
         >
           {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
           {isLoading ? "Joining..." : "Join Waitlist"}

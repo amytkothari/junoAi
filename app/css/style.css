@@ -4,33 +4,6 @@
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
 
-/* Simple Custom Cursor */
-* {
-  cursor: none;
-}
-
-body {
-  cursor: none;
-}
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  background: rgba(128, 119, 240, 0.8);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
-}
-
-.custom-cursor.hover {
-  transform: translate(-50%, -50%) scale(1.5);
-}
-
 @plugin "@tailwindcss/forms" {
   strategy: base;
 }
