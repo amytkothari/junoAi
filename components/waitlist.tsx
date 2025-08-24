@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 export default function Waitlist() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (email && !isLoading) {
+      setIsLoading(true);
       try {
         const response = await fetch('/api/waitlist', {
           method: 'POST',
@@ -28,6 +31,8 @@ export default function Waitlist() {
       } catch (error) {
         console.error('Error joining waitlist:', error);
         alert('Failed to join waitlist. Please try again.');
+      } finally {
+        setIsLoading(false);
       }
     }
   };
@@ -57,13 +62,16 @@ export default function Waitlist() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Your Email Address"
           required
-          className="flex-1 rounded-xl bg-gray-800/60 px-4 py-3 text-gray-200 placeholder-gray-400 backdrop-blur-xs focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+          disabled={isLoading}
+          className="flex-1 rounded-xl bg-gray-800/60 px-4 py-3 text-gray-200 placeholder-gray-400 backdrop-blur-xs focus:outline-none focus:ring-2 focus:ring-indigo-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button
           type="submit"
-          className="btn-sm bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]"
+          disabled={isLoading}
+          className="btn-sm bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[length:100%_100%] flex items-center gap-2"
         >
-          Join Waitlist
+          {isLoading && <Loader2 className="h-4 w-4 animate-spin" />}
+          {isLoading ? "Joining..." : "Join Waitlist"}
         </button>
       </div>
     </form>

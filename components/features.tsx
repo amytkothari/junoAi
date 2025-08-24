@@ -1,7 +1,6 @@
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
-import FeaturesImage from "@/public/images/features.png";
 
 export default function Features() {
   return (
@@ -43,17 +42,8 @@ export default function Features() {
               Everything you need to start your journaling journey
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Juno combines the power of AI with the simplicity of journaling to help you understand yourself better, one entry at a time.
+              
             </p>
-          </div>
-          <div className="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
-            <Image
-              className="max-w-none"
-              src={FeaturesImage}
-              width={1104}
-              height={384}
-              alt="Features"
-            />
           </div>
           {/* Items */}
           <div className="mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3">
@@ -63,18 +53,17 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
+                viewBox="0 0 24 24"
               >
-                <path d="M0 0h14v17H0V0Zm2 2v13h10V2H2Z" />
-                <path
-                  fillOpacity=".48"
-                  d="m16.295 5.393 7.528 2.034-4.436 16.412L5.87 20.185l.522-1.93 11.585 3.132 3.392-12.55-5.597-1.514.522-1.93Z"
-                />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                <path fillOpacity=".48" d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                <circle cx="12" cy="6" r="1.5" fillOpacity=".7"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                AI-Powered Prompts
+                AI-Powered Journaling
               </h3>
               <p className="text-indigo-200/65">
-                Get thoughtful, personalized prompts that guide your reflection and help you explore your thoughts more deeply.
+                Express yourself freely, Juno understands context and emotions to provide meaningful responses.
               </p>
             </article>
             <article>
@@ -83,15 +72,18 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
+                viewBox="0 0 24 24"
               >
-                <path fillOpacity=".48" d="M7 8V0H5v8h2Zm12 16v-4h-2v4h2Z" />
-                <path d="M19 6H0v2h17v8H7v-6H5v8h19v-2h-5V6Z" />
+                <path d="M9 11H7v6h2v-6zm4-4h-2v10h2V7zm4-3h-2v13h2V4zm4 6h-2v7h2v-7z"/>
+                <path fillOpacity=".48" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <circle cx="9" cy="9" r="1.5" fillOpacity=".7"/>
+                <circle cx="15" cy="9" r="1.5" fillOpacity=".7"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Mood Tracking
               </h3>
               <p className="text-indigo-200/65">
-                Monitor your emotional patterns over time and gain insights into what affects your mental well-being.
+                Visualize patterns in your emotional health over time and gain insights into what affects your mental well-being.
               </p>
             </article>
             <article>
@@ -100,18 +92,17 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
+                viewBox="0 0 24 24"
               >
-                <path d="M23.414 6 18 .586 16.586 2l3 3H7a6 6 0 0 0-6 6h2a4 4 0 0 1 4-4h12.586l-3 3L18 11.414 23.414 6Z" />
-                <path
-                  fillOpacity=".48"
-                  d="M13.01 12.508a2.5 2.5 0 0 0-3.502.482L1.797 23.16.203 21.952l7.71-10.17a4.5 4.5 0 1 1 7.172 5.437l-4.84 6.386-1.594-1.209 4.841-6.385a2.5 2.5 0 0 0-.482-3.503Z"
-                />
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                <path fillOpacity=".48" d="M12 6.5l1.5 3.03 3.36.49-2.43 2.37.57 3.33L12 14.25l-3 1.57.57-3.33-2.43-2.37 3.36-.49L12 6.5z"/>
+                <circle cx="12" cy="12" r="2" fillOpacity=".6"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Smart Insights
+                Personalized Prompts
               </h3>
               <p className="text-indigo-200/65">
-                Discover patterns in your thoughts and emotions with AI-powered analysis that helps you understand yourself better.
+                Never get stuck. Juno suggests thoughtful prompts to spark reflection and help you explore your thoughts deeper.
               </p>
             </article>
             <article>
@@ -120,23 +111,17 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
+                viewBox="0 0 24 24"
               >
-                <path
-                  fillOpacity=".48"
-                  d="m3.031 9.05-.593-.805 1.609-1.187.594.804a6.966 6.966 0 0 1 0 8.276l-.594.805-1.61-1.188.594-.805a4.966 4.966 0 0 0 0-5.9Z"
-                />
-                <path d="m7.456 6.676-.535-.845 1.69-1.07.534.844a11.944 11.944 0 0 1 0 12.789l-.535.845-1.69-1.071.536-.845a9.944 9.944 0 0 0 0-10.647Z" />
-                <path
-                  d="m11.888 4.35-.514-.858 1.717-1.027.513.858a16.9 16.9 0 0 1 2.4 8.677 16.9 16.9 0 0 1-2.4 8.676l-.513.859-1.717-1.028.514-.858A14.9 14.9 0 0 0 14.003 12a14.9 14.9 0 0 0-2.115-7.65Z"
-                  opacity=".48"
-                />
-                <path d="m16.321 2-.5-.866 1.733-1 .5.866A22 22 0 0 1 21 12c0 3.852-1.017 7.636-2.948 10.97l-.502.865-1.73-1.003.501-.865A19.878 19.878 0 0 0 19 12a20 20 0 0 0-2.679-10Z" />
+                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                <path fillOpacity=".48" d="M12 6.5c-2.49 0-4.5 2.01-4.5 4.5v5h9v-5c0-2.49-2.01-4.5-4.5-4.5z"/>
+                <circle cx="19" cy="7" r="3" fillOpacity=".6"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Gentle Reminders
+                Guided Reflections
               </h3>
               <p className="text-indigo-200/65">
-                Stay consistent with encouraging notifications that help you build a healthy journaling habit without feeling pressured.
+                Gentle nudges to help you reframe negative thoughts and build healthier mental patterns.
               </p>
             </article>
             <article>
@@ -145,18 +130,16 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
+                viewBox="0 0 24 24"
               >
-                <path
-                  fillOpacity=".48"
-                  d="M12 8.8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-                />
-                <path d="m7.454 2.891.891-.454L7.437.655l-.891.454a12 12 0 0 0 0 21.382l.89.454.91-1.781-.892-.455a10 10 0 0 1 0-17.818ZM17.456 1.11l-.891-.454-.909 1.782.891.454a10 10 0 0 1 0 17.819l-.89.454.908 1.781.89-.454a12 12 0 0 0 0-21.382Z" />
+                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                <path fillOpacity=".48" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
                 Privacy First
               </h3>
               <p className="text-indigo-200/65">
-                Your journal entries are encrypted and completely private. Share only what you want, when you want.
+                Your thoughts are completely encrypted and 100% yours.
               </p>
             </article>
             <article>
@@ -165,18 +148,19 @@ export default function Features() {
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
+                viewBox="0 0 24 24"
               >
-                <path
-                  fillOpacity=".48"
-                  d="M19 8h5v2h-5V8Zm-4 5h9v2h-9v-2Zm9 5H11v2h13v-2Z"
-                />
-                <path d="M19.406 3.844 6.083 20.497.586 15 2 13.586l3.917 3.917L17.844 2.595l1.562 1.25Z" />
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                <path fillOpacity=".48" d="M5 5h14v2H5V5zm0 4h10v2H5V9zm0 4h7v2H5v-2z"/>
+                <circle cx="18" cy="6" r="1" fillOpacity=".7"/>
+                <circle cx="18" cy="10" r="1" fillOpacity=".7"/>
+                <circle cx="18" cy="14" r="1" fillOpacity=".7"/>
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Beautiful Interface
+                Habit Integration
               </h3>
               <p className="text-indigo-200/65">
-                Enjoy a clean, calming design that makes journaling feel like a peaceful moment of self-care.
+                Connect journaling to your daily routines and build lasting habits.
               </p>
             </article>
           </div>

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
+import CustomCursor from "@/components/custom-cursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,8 +40,8 @@ const nacelle = localFont({
 });
 
 export const metadata = {
-  title: "Juno Ai",
-  description: "xyz",
+  title: "Juno AI - Your Mental Health Journaling Companion",
+  description: "Juno is a journaling app powered by a highly compassionate AI that listens, reflects, and helps you build a healthier relationship with your mind.",
 };
 
 export default function RootLayout({
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
+        <CustomCursor />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}

@@ -10,19 +10,69 @@ export default function Workflows() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="pb-12 md:pb-20">
           {/* Section header */}
-          <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
+          <div className="mx-auto max-w-4xl pb-12 text-center md:pb-20">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
               <span className="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
                 The Challenge
               </span>
             </div>
             <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              We often feel overwhelmed, stuck with racing thoughts, and unsure where to begin journaling.
+              1 in 8 people globally live with a mental disorder, yet most face barriers to getting help.
             </h2>
-            <p className="text-lg text-indigo-200/65">
-              It's hard to find the right words, stay consistent, or feel like anyone truly understands what's going on inside your mind.
+            <p className="text-lg text-indigo-200/65 mb-6">
+              About 970 million people worldwide lived with a mental disorder in 2019, with anxiety and depression being the most common. Traditional therapy often has lengthy wait times (50-150 days in many regions), high costs ($100-$250 per session), and limited accessibility. Many people feel overwhelmed by racing thoughts, unable to process their emotions, or don't know where to start their mental wellness journey.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-6">
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+                <div className="text-2xl font-bold text-indigo-400 mb-1">970M</div>
+                <div className="text-sm text-indigo-200/65">People with mental disorders globally (2019)</div>
+              </div>
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+                <div className="text-2xl font-bold text-indigo-400 mb-1">50-150</div>
+                <div className="text-sm text-indigo-200/65">Days average wait time for therapy</div>
+              </div>
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+                <div className="text-2xl font-bold text-indigo-400 mb-1">$100-250</div>
+                <div className="text-sm text-indigo-200/65">Cost per therapy session (US)</div>
+              </div>
+            </div>
+            <p className="text-xs text-indigo-200/45 italic">
+              Sources: World Health Organization (2019), NHS IAPT Program, SimplePractice Data (2023-2024)
             </p>
           </div>
+
+          {/* Solution section */}
+          <div className="mx-auto max-w-4xl pb-12 text-center md:pb-20">
+            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-linear-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-linear-to-l after:from-transparent after:to-indigo-200/50">
+              <span className="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
+                The Solution
+              </span>
+            </div>
+            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+              Research shows 68% of journaling interventions effectively improve mental health outcomes.
+            </h2>
+            <p className="text-lg text-indigo-200/65 mb-6">
+              With Juno, journaling becomes more than writing—it becomes a therapeutic dialogue. Our AI companion understands context and emotions, responds with empathy, and guides you through evidence-based techniques. Studies show journaling reduces anxiety symptoms by 9%, improves working memory, and creates lasting benefits that extend 3-6 months. Write down your thoughts anytime, and experience the healing power of being truly heard.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-6">
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+                <div className="text-2xl font-bold text-indigo-400 mb-1">68%</div>
+                <div className="text-sm text-indigo-200/65">Effective journaling interventions (20 studies)</div>
+              </div>
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+                <div className="text-2xl font-bold text-indigo-400 mb-1">9%</div>
+                <div className="text-sm text-indigo-200/65">Average anxiety symptom reduction</div>
+              </div>
+              <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+                <div className="text-2xl font-bold text-indigo-400 mb-1">3-6</div>
+                <div className="text-sm text-indigo-200/65">Months of lasting mental health benefits</div>
+              </div>
+            </div>
+            <p className="text-xs text-indigo-200/45 italic">
+              Sources: Systematic Meta-Analysis (31 outcomes), Journal of Clinical Psychology, Positive Psychology Research
+            </p>
+          </div>
+
           {/* Spotlight items */}
           <Spotlight className="group mx-auto grid max-w-sm items-start gap-6 lg:max-w-none lg:grid-cols-3">
             {/* Card 1 */}
@@ -31,23 +81,6 @@ export default function Workflows() {
               href="#0"
             >
               <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                {/* Arrow */}
-                <div
-                  className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={9}
-                    height={8}
-                    fill="none"
-                  >
-                    <path
-                      fill="#F4F4F5"
-                      d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                    />
-                  </svg>
-                </div>
                 {/* Image */}
                 <Image
                   className="inline-flex"
@@ -77,23 +110,6 @@ export default function Workflows() {
               href="#0"
             >
               <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                {/* Arrow */}
-                <div
-                  className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={9}
-                    height={8}
-                    fill="none"
-                  >
-                    <path
-                      fill="#F4F4F5"
-                      d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                    />
-                  </svg>
-                </div>
                 {/* Image */}
                 <Image
                   className="inline-flex"
@@ -123,23 +139,6 @@ export default function Workflows() {
               href="#0"
             >
               <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                {/* Arrow */}
-                <div
-                  className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                  aria-hidden="true"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={9}
-                    height={8}
-                    fill="none"
-                  >
-                    <path
-                      fill="#F4F4F5"
-                      d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                    />
-                  </svg>
-                </div>
                 {/* Image */}
                 <Image
                   className="inline-flex"

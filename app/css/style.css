@@ -4,6 +4,33 @@
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
 
+/* Simple Custom Cursor */
+* {
+  cursor: none;
+}
+
+body {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: rgba(128, 119, 240, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
 @plugin "@tailwindcss/forms" {
   strategy: base;
 }
@@ -11,6 +38,18 @@
 @theme {
   --font-inter: var(--font-inter), sans-serif;
   --font-nacelle: var(--font-nacelle), sans-serif;
+
+  /* Custom Colors */
+  --color-indigo-50: #f0f0ff;
+  --color-indigo-100: #e0e0ff;
+  --color-indigo-200: #c0c0ff;
+  --color-indigo-300: #a0a0ff;
+  --color-indigo-400: #9090ff;
+  --color-indigo-500: #8077f0;
+  --color-indigo-600: #7066d9;
+  --color-indigo-700: #6055c2;
+  --color-indigo-800: #5044ab;
+  --color-indigo-900: #403394;
 
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5384;
