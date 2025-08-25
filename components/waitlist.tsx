@@ -48,15 +48,21 @@ export default function Waitlist() {
 
   if (isSubmitted) {
     return (
-      <div className="mx-auto max-w-md text-center">
-        <div className="rounded-2xl bg-gray-800/40 p-6 backdrop-blur-xs">
-          <div className="mb-4 text-2xl">🎉</div>
-          <h3 className="mb-2 font-nacelle text-lg font-semibold text-gray-200">
-            You're on the list!
-          </h3>
-          <p className="text-sm text-indigo-200/65">
-            We'll notify you as soon as Juno is ready. Thanks for your patience!
-          </p>
+      <div className="mx-auto max-w-md">
+        <div className="relative rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-600/10 p-4 backdrop-blur-sm border border-indigo-400/20">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-lg animate-pulse">
+              ✦
+            </div>
+            <div className="flex-1">
+              <h3 className="font-nacelle text-lg font-semibold bg-gradient-to-r from-indigo-200 to-purple-200 bg-clip-text text-transparent">
+                Welcome to the Journey!
+              </h3>
+              <p className="text-sm text-gray-300">
+                You're on the waitlist. We'll notify you when Juno is ready!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     );
