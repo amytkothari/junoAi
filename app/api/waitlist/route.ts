@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { createServerSupabaseClient } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,6 +10,60 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Email is required' },
         { status: 400 }
+      );
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Please enter a valid email address' },
+        { status: 400 }
+      );
+    }
+
+    // Initialize Supabase client
+    const supabase = createServerSupabaseClient();
+
+    // Check if email already exists in waitlist
+    const { data: existingUser, error: checkError } = await supabase
+      .from('waitlist')
+      .select('email')
+      .eq('email', email.toLowerCase())
+      .single();
+
+    if (checkError && checkError.code !== 'PGRST116') {
+      console.error('Database check error:', checkError);
+      return NextResponse.json(
+        { error: 'Database error occurred' },
+        { status: 500 }
+      );
+    }
+
+    if (existingUser) {
+      return NextResponse.json(
+        { error: 'This email is already on the waitlist' },
+        { status: 409 }
+      );
+    }
+
+    // Add email to Supabase waitlist table
+    const { data: insertData, error: insertError } = await supabase
+      .from('waitlist')
+      .insert([
+        {
+          email: email.toLowerCase(),
+          created_at: new Date().toISOString(),
+          source: 'website'
+        }
+      ])
+      .select();
+
+    if (insertError) {
+      console.error('Database insert error:', insertError);
+      return NextResponse.json(
+        { error: 'Failed to save to waitlist' },
+        { status: 500 }
       );
     }
 
@@ -35,6 +90,7 @@ export async function POST(request: NextRequest) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
           <p><strong>Platform:</strong> Juno Mental Health App</p>
+          <p><strong>Total Waitlist Users:</strong> ${insertData ? 'Added successfully' : 'Check database'}</p>
           <hr style="border: 1px solid #e5e7eb; margin: 20px 0;">
           <p style="color: #6b7280; font-size: 14px;">
             This email was sent automatically when someone joined your waitlist.
@@ -74,7 +130,10 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { message: 'Successfully joined waitlist' },
+      { 
+        message: 'Successfully joined waitlist',
+        data: { email: email.toLowerCase() }
+      },
       { status: 200 }
     );
   } catch (error) {
