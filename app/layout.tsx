@@ -39,7 +39,7 @@ const nacelle = localFont({
 });
 
 export const metadata = {
-  title: "Juno ✦",
+  title: "Juno AI - Your Mental Health Journaling Companion",
   description: "Juno is a journaling app powered by a highly compassionate AI that listens, reflects, and helps you build a healthier relationship with your mind.",
 };
 
