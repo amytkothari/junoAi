@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { StaticImageData } from "next/image";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import Image from "next/image";
@@ -14,6 +14,14 @@ interface ModalVideoProps {
   video: string;
   videoWidth: number;
   videoHeight: number;
+  duration?: string;
+  autoPlay?: boolean;
+  showControls?: boolean;
+  muted?: boolean;
+  onError?: (error: Error) => void;
+  onPlay?: () => void;
+  onPause?: () => void;
+  onEnd?: () => void;
 }
 
 export default function ModalVideo({
@@ -24,9 +32,47 @@ export default function ModalVideo({
   video,
   videoWidth,
   videoHeight,
+  duration = "00:48",
+  autoPlay = true,
+  showControls = true,
+  muted = false,
+  onError,
+  onPlay,
+  onPause,
+  onEnd,
 }: ModalVideoProps) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Handle video loading
+  const handleVideoLoad = () => {
+    setIsLoading(false);
+  };
+
+  // Handle video errors
+  const handleVideoError = (e: Event) => {
+    const error = new Error("Failed to load video");
+    setError("Failed to load video");
+    setIsLoading(false);
+    onError?.(error);
+  };
+
+  // Handle modal open/close
+  useEffect(() => {
+    if (modalOpen && videoRef.current) {
+      if (autoPlay) {
+        videoRef.current.play().catch((error) => {
+          console.error("Autoplay failed:", error);
+          onError?.(error);
+        });
+      }
+    } else if (!modalOpen && videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [modalOpen, autoPlay, onError]);
 
   return (
     <div className="relative">
@@ -46,26 +92,29 @@ export default function ModalVideo({
 
       {/* Video thumbnail */}
       <button
-        className="group relative flex items-center justify-center rounded-2xl focus:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200"
+        className="group relative flex items-center justify-center rounded-2xl focus:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 cursor-pointer"
         onClick={() => {
           setModalOpen(true);
         }}
         aria-label="Watch the video"
         data-aos="fade-up"
-        data-aos-delay={200}
+        data-aos-offset="150"
+        data-aos-delay="0"
+        data-aos-duration="700"
       >
-        <figure className="relative h-[250px] w-full overflow-hidden rounded-2xl before:absolute before:inset-0 before:-z-10 before:bg-linear-to-br before:from-gray-900 before:via-indigo-500/20 before:to-gray-900">
+        <div className=" h-[400px] w-full overflow-hidden rounded-2xl before:absolute before:inset-0 before:-z-10 before:bg-linear-to-br before:from-gray-900 before:via-indigo-500/20 before:to-gray-900">
           <Image
-            className="transition-opacity blur-[2px]"
+            className="transition-opacity h-full w-full object-cover blur-[7px]"
             src={thumb}
-            width={thumbWidth}
-            height={thumbHeight}
+            width={1000}
+            height={100}
+
             priority
             alt={thumbAlt}
           />
-        </figure>
+        </div>
         {/* Play icon */}
-        <span className="pointer-events-none absolute p-2.5 before:absolute before:inset-0 before:rounded-full before:bg-gray-950 before:duration-300 group-hover:before:scale-110">
+        <span className="pointer-events-none absolute p-2.5 before:absolute before:inset-0 before:rounded-full before:bg-gray-950 before:duration-300 group-hover:before:scale-120">
           <span className="relative flex items-center gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -124,6 +173,8 @@ export default function ModalVideo({
                 height={videoHeight}
                 loop
                 controls
+                autoPlay
+                muted
               >
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
