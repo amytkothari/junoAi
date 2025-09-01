@@ -22,14 +22,14 @@ export default function HeroHome() {
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mb-1 text-xl text-indigo-200/65"
+                className="mb-2 text-xl text-indigo-200/65"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
                Juno is a journaling app powered by a highly compassionate AI that listens, reflects, and helps you build a healthier relationship with your mind.
 
               </p>
-              <div data-aos="fade-up" className="py-10" data-aos-delay={400}>
+              <div data-aos="fade-up" className="py-10 mb-3" data-aos-delay={400}>
                 <Waitlist />
               </div>
               
