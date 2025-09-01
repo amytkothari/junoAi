@@ -174,7 +174,7 @@ export default function ModalVideo({
                 loop
                 controls
                 autoPlay
-                muted
+                // muted={muted}
               >
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
